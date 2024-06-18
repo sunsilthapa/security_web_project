@@ -1,0 +1,103 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  font-family: Roboto;
+  font-size: 1.4vmax;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.navbar__logo img {
+  width: 150px;
+  transition: transform 0.3s;
+}
+
+.navbar__logo img:hover {
+  transform: scale(1.1);
+}
+
+.navbar__links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar__link {
+  text-decoration: none;
+  color: rgba(35, 35, 35, 0.8);
+  font-size: 1.2rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.navbar__link:hover {
+  color: #eb4034;
+  transform: translateY(-3px);
+}
+
+.navbar__icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar__icon {
+  color: rgba(255, 11, 11, 0.8);
+  font-size: 1.5rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.navbar__icon:hover {
+  color: #eb4034;
+  transform: scale(1.2);
+}
+
+.navbar__burger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navbar__links {
+    display: none;
+  }
+
+  .navbar__burger {
+    display: block;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+} */
+
+/* .navbar__link,
+.navbar__icon {
+  animation: slideIn 0.5s ease-in-out;
+} */
+
+.speedDial {
+  position: fixed;
+  right: 3vmax;
+  top: 3vmax;
+}
+
+.speedDialIcon {
+  width: 56px;
+height: 56px;
+border-radius: 100%;
+}
