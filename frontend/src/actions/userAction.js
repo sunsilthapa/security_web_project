@@ -39,6 +39,7 @@ import {
   UPDATE_USERS_REQUEST,
   UPDATE_USERS_SUCCESS,
   UPDATE_USERS_FAIL,
+  VERIFY_EMAIL
 } from "../constants/userConstants";
 import axios from "axios";
 
@@ -54,6 +55,8 @@ export const login = (email, password) => async (dispatch) => {
       { email, password },
       config
     );
+
+    console.log("After login " , data)
     dispatch({ type: LOGIN_SUCCESS, payload: data.user });
   } catch (error) {
     dispatch({ type: LOGIN_FAIL, payload: error.response.data.message });
@@ -69,7 +72,7 @@ export const register = (userData) => async (dispatch) => {
 
     const { data } = await instance.post(`/api/v1/register`, userData, config);
 
-    dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });
+    dispatch({ type:  VERIFY_EMAIL, payload: data.user });
   } catch (error) {
     dispatch({
       type: REGISTER_USER_FAIL,
@@ -90,6 +93,7 @@ export const loadUser = () => async (dispatch) => {
   }
 };
 
+
 //Logout user
 export const logout = () => async (dispatch) => {
   try {
@@ -101,22 +105,16 @@ export const logout = () => async (dispatch) => {
 };
 
 // Update profile action
-export const updateProfile = (userData) => async (dispatch) => {
+export const updateProfile = (userData, csrfToken) => async (dispatch) => {
   try {
     dispatch({ type: UPDATE_PROFILE_REQUEST });
-
-    const {
-      data: { csrfToken },
-    } = await axios.get("http://localhost:4000/api/v1/csrf-token");
     const config = {
       headers: {
         "Content-Type": "multipart/form-data",
         "CSRF-Token": csrfToken, // Include CSRF token in the headers
       },
     };
-
     const { data } = await instance.put(`/api/v1/me/update`, userData, config);
-
     dispatch({ type: UPDATE_PROFILE_SUCCESS, payload: data.success });
   } catch (error) {
     dispatch({
@@ -125,29 +123,18 @@ export const updateProfile = (userData) => async (dispatch) => {
     });
   }
 };
-// export const updateProfile = (userData)=> async (dispatch) =>{
-//     try {
-//         dispatch({ type: UPDATE_PROFILE_REQUEST });
 
-//         const config = { headers: { "Content-Type": "multipart/form-data" } };
-
-//         const { data } = await instance.put(`/api/v1/me/update`, userData, config);
-
-//         dispatch({ type: UPDATE_PROFILE_SUCCESS, payload: data.success });
-//       } catch (error) {
-//         dispatch({
-//           type: UPDATE_PROFILE_FAIL,
-//           payload: error.response.data.message,
-//         });
-//       }
-//     };
-
-//update password
-export const updatePassword = (passwords) => async (dispatch) => {
+// Update password action
+export const updatePassword = (passwords, csrfToken) => async (dispatch) => {
   try {
     dispatch({ type: UPDATE_PASSWORD_REQUEST });
 
-    const config = { headers: { "Content-Type": "application/json" } };
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        "CSRF-Token": csrfToken, // Include CSRF token in the headers
+      },
+    };
 
     const { data } = await instance.put(
       `/api/v1/password/update`,
