@@ -13,7 +13,11 @@ const ResetPassword = () => {
     const dispatch = useDispatch();
     const alert = useAlert();
     const navigate = useNavigate();
-    const {id} = useParams();
+    const {token} = useParams();
+
+    console.log(useParams());
+
+
 
     const { error,success ,loading } = useSelector((state) => state.forgotPassword);
 
@@ -33,8 +37,9 @@ const ResetPassword = () => {
         myForm.set("password", password);
         myForm.set("confirmPassword", confirmPassword);
 
+        console.log("token", token)
 
-        dispatch(resetPassword(id,myForm));
+        dispatch(resetPassword(token,myForm));
       };
     
       useEffect(() => {

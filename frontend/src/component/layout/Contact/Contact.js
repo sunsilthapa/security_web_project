@@ -4,7 +4,7 @@ import { Button } from "@material-ui/core";
 const Contact = () => {
   return (
     <div className="contactContainer">
-      <a className="mailBtn" href="mailto:darshanrajpurohit47@gmail.com">
+      <a className="mailBtn" href="mailto:sunsil1281@gmail.com">
         <Button>sunsil1281@gmail.com</Button>
       </a>
     </div>

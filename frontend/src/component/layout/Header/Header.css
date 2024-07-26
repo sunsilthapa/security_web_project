@@ -1,94 +1,67 @@
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.navbar {
-  font-family: Roboto;
-  font-size: 1.4vmax;
+/* Header.css */
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  font: 300 2rem "Roboto"; 
+  padding: 10px 20px;
   background-color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: relative;
 }
 
-.navbar__logo img {
-  width: 150px;
-  transition: transform 0.3s;
-}
-
-.navbar__logo img:hover {
-  transform: scale(1.1);
-}
-
-.navbar__links {
+.header__logo {
   display: flex;
-  gap: 1.5rem;
+  align-items: center;
+  padding: 10px;
 }
 
-.navbar__link {
+.header__logo-img {
+  width: 100px;
+  height: 50px;
+}
+
+.header__nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.header__nav-list {
+  display: flex;
+  list-style: none;
+}
+
+.header__nav-item {
+  margin: 0 15px;
+}
+
+.header__nav-link {
   text-decoration: none;
   color: rgba(35, 35, 35, 0.8);
   font-size: 1.2rem;
-  transition: color 0.3s, transform 0.3s;
+  transition: color 0.3s;
 }
 
-.navbar__link:hover {
+.header__nav-link:hover {
   color: #eb4034;
-  transform: translateY(-3px);
 }
 
-.navbar__icons {
+.header__icons {
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  padding: 10px;
 }
 
-.navbar__icon {
-  color: rgba(255, 11, 11, 0.8);
+.header__icon {
+  margin-left: 20px;
+  color: rgba(29, 27, 27, 0.8);
   font-size: 1.5rem;
-  transition: color 0.3s, transform 0.3s;
+  transition: color 0.3s;
 }
 
-.navbar__icon:hover {
+.header__icon:hover {
   color: #eb4034;
-  transform: scale(1.2);
 }
-
-.navbar__burger {
-  display: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .navbar__links {
-    display: none;
-  }
-
-  .navbar__burger {
-    display: block;
-  }
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateY(-10px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-} */
-
-/* .navbar__link,
-.navbar__icon {
-  animation: slideIn 0.5s ease-in-out;
-} */
 
 .speedDial {
   position: fixed;
